@@ -1,0 +1,4 @@
+*.suo
+*.lock
+*.cache
+*.baml

@@ -1,0 +1,30 @@
+C:\Users\Poul\AppData\Local\Temporary Projects\MiningImitator\bin\Debug\MiningImitator.exe.config
+C:\Users\Poul\AppData\Local\Temporary Projects\MiningImitator\bin\Debug\MiningImitator.exe
+C:\Users\Poul\AppData\Local\Temporary Projects\MiningImitator\bin\Debug\MiningImitator.pdb
+C:\Users\Poul\AppData\Local\Temporary Projects\MiningImitator\obj\Debug\MiningImitator.csprojResolveAssemblyReference.cache
+C:\Users\Poul\AppData\Local\Temporary Projects\MiningImitator\obj\Debug\MainWindow.g.cs
+C:\Users\Poul\AppData\Local\Temporary Projects\MiningImitator\obj\Debug\App.g.cs
+C:\Users\Poul\AppData\Local\Temporary Projects\MiningImitator\obj\Debug\MiningImitator_MarkupCompile.cache
+C:\Users\Poul\AppData\Local\Temporary Projects\MiningImitator\obj\Debug\MiningImitator_MarkupCompile.lref
+C:\Users\Poul\AppData\Local\Temporary Projects\MiningImitator\obj\Debug\MainWindow.baml
+C:\Users\Poul\AppData\Local\Temporary Projects\MiningImitator\obj\Debug\MiningImitator.g.resources
+C:\Users\Poul\AppData\Local\Temporary Projects\MiningImitator\obj\Debug\MiningImitator.Properties.Resources.resources
+C:\Users\Poul\AppData\Local\Temporary Projects\MiningImitator\obj\Debug\MiningImitator.csproj.GenerateResource.Cache
+C:\Users\Poul\AppData\Local\Temporary Projects\MiningImitator\obj\Debug\MiningImitator.csproj.CoreCompileInputs.cache
+C:\Users\Poul\AppData\Local\Temporary Projects\MiningImitator\obj\Debug\MiningImitator.exe
+C:\Users\Poul\AppData\Local\Temporary Projects\MiningImitator\obj\Debug\MiningImitator.pdb
+C:\Users\Poul\source\repos\MiningImitator\MiningImitator\bin\Debug\MiningImitator.exe.config
+C:\Users\Poul\source\repos\MiningImitator\MiningImitator\bin\Debug\MiningImitator.exe
+C:\Users\Poul\source\repos\MiningImitator\MiningImitator\bin\Debug\MiningImitator.pdb
+C:\Users\Poul\source\repos\MiningImitator\MiningImitator\obj\Debug\MiningImitator.csprojResolveAssemblyReference.cache
+C:\Users\Poul\source\repos\MiningImitator\MiningImitator\obj\Debug\MainWindow.g.cs
+C:\Users\Poul\source\repos\MiningImitator\MiningImitator\obj\Debug\App.g.cs
+C:\Users\Poul\source\repos\MiningImitator\MiningImitator\obj\Debug\MiningImitator_MarkupCompile.cache
+C:\Users\Poul\source\repos\MiningImitator\MiningImitator\obj\Debug\MiningImitator_MarkupCompile.lref
+C:\Users\Poul\source\repos\MiningImitator\MiningImitator\obj\Debug\MainWindow.baml
+C:\Users\Poul\source\repos\MiningImitator\MiningImitator\obj\Debug\MiningImitator.g.resources
+C:\Users\Poul\source\repos\MiningImitator\MiningImitator\obj\Debug\MiningImitator.Properties.Resources.resources
+C:\Users\Poul\source\repos\MiningImitator\MiningImitator\obj\Debug\MiningImitator.csproj.GenerateResource.Cache
+C:\Users\Poul\source\repos\MiningImitator\MiningImitator\obj\Debug\MiningImitator.csproj.CoreCompileInputs.cache
+C:\Users\Poul\source\repos\MiningImitator\MiningImitator\obj\Debug\MiningImitator.exe
+C:\Users\Poul\source\repos\MiningImitator\MiningImitator\obj\Debug\MiningImitator.pdb
