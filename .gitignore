@@ -2,3 +2,8 @@
 *.lock
 *.cache
 *.baml
+.vs/
+*.settings
+MiningImitator/obj/
+MiningImitator/bin/
+MiningImitator/Properties/
