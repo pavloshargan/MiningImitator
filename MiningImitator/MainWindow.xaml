@@ -6,34 +6,41 @@
         xmlns:local="clr-namespace:MiningImitator"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525" Closed="Window_Closed">
-    <Grid>
+    <Grid >
+        <Grid.Background>
+            <ImageBrush ImageSource="Resources/BlockchainBackground.jpeg"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="7*"/>
             
            
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0"  Orientation="Horizontal">
-            <Label  Name="ETHLabel" Content="ETH: 0"/>
-            <Label  Name="BTCLabel"  Content="BTC: 0"/>
-            <Label  Name="KRBLabel"  Content="KRB: 0"/>
+            <Label  Name="ETHLabel" Foreground="White" Content="ETH: 0"/>
+            <Label  Name="BTCLabel" Foreground="White" Content="BTC: 0"/>
+            <Label  Name="KRBLabel" Foreground="White" Content="KRB: 0"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <Button VerticalAlignment="Top" Height="25" Width="50" Name="Stop" Content="Stop" Click="Stop_Click"/>
-            <Button  Margin="20,0,0,0" VerticalAlignment="Top" Height="25" Width="50"  Name="Start" Click="Start_Click" Content="Start"/>
-            <ComboBox  SelectedIndex="0" Margin="30,0,0,0" VerticalAlignment="Top"  Height="25" Width="50"  Name="CardCurrency">
-                <ComboBoxItem Content="BTC"/>
-                <ComboBoxItem Content="ETH"/>
-                <ComboBoxItem Content="KRB"/>
+            <Button IsEnabled="False" VerticalAlignment="Top" Height="25" Width="50" Name="Stop" Content="Stop" Click="Stop_Click"/>
+            <Button IsEnabled="False" Margin="20,0,0,0" VerticalAlignment="Top" Height="25" Width="50"  Name="Start" Click="Start_Click" Content="Start"/>
+            <ComboBox Background="Transparent"   SelectedIndex="0" Margin="30,0,0,0" VerticalAlignment="Top"  Height="25" Width="50"  Name="CardCurrency">
+                <ComboBoxItem  Content="BTC"/>
+                <ComboBoxItem  Content="ETH"/>
+                <ComboBoxItem  Content="KRB"/>
             </ComboBox>
         </StackPanel>
-                    <ListView Margin="0,50,0,0" Name="MyList" Grid.Row="1" SelectionChanged="MyList_SelectionChanged">
+                    <ListView  BorderThickness="0" Background="Transparent" Margin="0,50,0,0" Name="MyList" Grid.Row="1" SelectionChanged="MyList_SelectionChanged">
 
             <ListView.ItemTemplate >
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" >
-                        <TextBlock Text="{Binding Path=Name }" MinWidth="250" Height="20" Foreground="Purple"  />
+                        <TextBlock Text="{Binding Path=Name }" MinWidth="250" Height="20" Foreground="White"  />
+                        <ContextMenu>
+                            <MenuItem Header="ldldld"/>
+                        </ContextMenu>
                     </StackPanel>
+                    
                 </DataTemplate>
             </ListView.ItemTemplate>
 
