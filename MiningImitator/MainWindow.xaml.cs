@@ -59,6 +59,7 @@ namespace MiningImitator
                 }
                 Thread.Sleep(1000 - vc.Power);
             }
+           
         }
         public void ETHplus(object a)
         {
@@ -73,8 +74,9 @@ namespace MiningImitator
                       ETHLabel.Content = ETH.ToString();
                     }
                         );
-                    Thread.Sleep(1000 - vc.Power);
+                   
                 }
+                Thread.Sleep(1000 - vc.Power);
             }
         }
         public void KRBplus(object a)
@@ -92,8 +94,9 @@ namespace MiningImitator
                         KRBLabel.Content = KRB.ToString();
                     }
                         );
-                    Thread.Sleep(1000 - vc.Power);
+                  
                 }
+                Thread.Sleep(1000 - vc.Power);
             }
         }
         public MainWindow()
@@ -104,7 +107,7 @@ namespace MiningImitator
             Cards = new ObservableCollection<VideoCard>() { new VideoCard() {
                 Name = "MSI GTX 1060", Power = 600    } ,
                 new VideoCard() { Name = "MSI GTX 1080 Ti", Power = 850  },
-                new VideoCard() { Name = "Gigabyte GTX 1080 Ti" },
+                new VideoCard() { Name = "Gigabyte GTX 1080 Ti", Power=1000 },
                 new VideoCard() { Name = "INNO3D GTX 1080 Ti", Power = 800 },
                 new VideoCard() { Name = "Asus PCI-Ex GeForce GT", Power = 250  }
             };
@@ -119,8 +122,7 @@ namespace MiningImitator
 
 
             VideoCard card = MyList.SelectedItem as VideoCard;
-            if (card.thr == null)
-            {
+            
                 switch ((CardCurrency.SelectedItem as ComboBoxItem).Content.ToString())
                 {
                     case "BTC": { card.thr = new Thread(BTCplus); break; }
@@ -132,11 +134,7 @@ namespace MiningImitator
 
 
                 card.thr.Start(card);
-            }
-            else
-
-                card.thr.Resume();
-                
+           
             
             card.State = "Running";
             Start.IsEnabled = false;
@@ -147,7 +145,7 @@ namespace MiningImitator
         {
 
             VideoCard card = MyList.SelectedValue as VideoCard;
-            card.thr.Suspend();
+            card.thr.Abort();
             card.State = "Suspended";
               
             Start.IsEnabled = true;
@@ -176,8 +174,8 @@ namespace MiningImitator
                 Stop.IsEnabled = false;
                 return;
             }
-            MessageBox.Show(vc.thr.ThreadState.ToString());
-            if (vc.thr.ThreadState.ToString()=="Running")
+            MessageBox.Show(vc.State);
+            if (vc.State=="Running")
             {
                 Start.IsEnabled = false;
                 Stop.IsEnabled = true;
