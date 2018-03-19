@@ -5,23 +5,57 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MiningImitator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" Closed="Window_Closed">
+        Title="MainWindow" Height="350" Width="525" Closed="Window_Closed" WindowStyle="None" ResizeMode="NoResize">
     <Grid >
         <Grid.Background>
             <ImageBrush ImageSource="Resources/BlockchainBackground.jpeg"/>
         </Grid.Background>
         <Grid.RowDefinitions>
+            <RowDefinition Height="15"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="7*"/>
-            
-           
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0"  Orientation="Horizontal">
+
+        <Rectangle  Fill="#01080d" Grid.Row="0"/>
+        <Button Grid.Row="0" Height="15" Width="15" HorizontalAlignment="Right" Margin="0,0,4,0" Click="Button_Click">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <ImageBrush ImageSource="Resources/close.png"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                                    <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsEnabled" Value="false">
+                                        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="RenderTransform">
+                                            <Setter.Value>
+                                                <ScaleTransform ScaleX="1.15" ScaleY="1.15"  />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+            <StackPanel Grid.Row="1"  Orientation="Horizontal">
             <Label  Name="ETHLabel" Foreground="White" Content="ETH: 0"/>
             <Label  Name="BTCLabel" Foreground="White" Content="BTC: 0"/>
             <Label  Name="KRBLabel" Foreground="White" Content="KRB: 0"/>
         </StackPanel>
-        <StackPanel Grid.Row="1" Orientation="Horizontal">
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
             <Button IsEnabled="False" VerticalAlignment="Top" Height="25" Width="50" Name="Stop" Content="Stop" Click="Stop_Click"/>
             <Button IsEnabled="False" Margin="20,0,0,0" VerticalAlignment="Top" Height="25" Width="50"  Name="Start" Click="Start_Click" Content="Start"/>
             <ComboBox Background="Transparent"   SelectedIndex="0" Margin="30,0,0,0" VerticalAlignment="Top"  Height="25" Width="50"  Name="CardCurrency">
@@ -29,16 +63,46 @@
                 <ComboBoxItem  Content="ETH"/>
                 <ComboBoxItem  Content="KRB"/>
             </ComboBox>
+            <TextBlock   VerticalAlignment="Top" Height="25"   Background="Transparent" Foreground="White" Name="CardInfo">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=MyList, Path=SelectedValue}" Value="{x:Null}">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+                <TextBlock.Inlines >
+                    <Run Text="Power:"/>
+                    <Run Text="{Binding ElementName=MyList, Mode=OneWay, Path=SelectedValue.Power}"/>
+                </TextBlock.Inlines>
+                        </TextBlock>
+            <TextBlock   Margin="10,0,0,0" VerticalAlignment="Top" Height="25"   Background="Transparent" Foreground="White" Name="MineInfo">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=MyList, Path=SelectedValue.thr}" Value="{x:Null}">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+                <TextBlock.Inlines >
+                    <Run Text="Has mined:"/>
+                    <Run Text="{Binding ElementName=MyList,  Mode=TwoWay, Path=SelectedValue.CurrentSessionMined, UpdateSourceTrigger=PropertyChanged}"   />
+                </TextBlock.Inlines>
+            </TextBlock>
+           
+
         </StackPanel>
-                    <ListView  BorderThickness="0" Background="Transparent" Margin="0,50,0,0" Name="MyList" Grid.Row="1" SelectionChanged="MyList_SelectionChanged">
+                    <ListView  BorderThickness="0" Background="Transparent" Margin="0,30,0,0" Name="MyList" Grid.Row="2" SelectionChanged="MyList_SelectionChanged">
 
             <ListView.ItemTemplate >
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" >
-                        <TextBlock Text="{Binding Path=Name }" MinWidth="250" Height="20" Foreground="White"  />
-                        <ContextMenu>
-                            <MenuItem Header="ldldld"/>
-                        </ContextMenu>
+                        <TextBlock Text="{Binding Path=Name }" MinWidth="200" Height="20" Foreground="White"  />
+                        <TextBlock Text="{Binding Path=State }" Width="60" Height="20" Foreground="White"  />
                     </StackPanel>
                     
                 </DataTemplate>

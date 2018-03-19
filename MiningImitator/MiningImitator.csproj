@@ -100,5 +100,8 @@
   <ItemGroup>
     <Resource Include="Resources\BlockchainBackground.jpeg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\close.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
