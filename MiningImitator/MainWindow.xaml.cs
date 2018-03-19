@@ -174,7 +174,10 @@ namespace MiningImitator
             foreach (VideoCard v in Cards)
             {
                 if (v.thr != null)
+                {
+                    if(v.State!="Suspended")
                     v.thr.Abort();
+                }
             }
             Application.Current.Shutdown();
         }

@@ -102,7 +102,23 @@
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" >
                         <TextBlock Text="{Binding Path=Name }" MinWidth="200" Height="20" Foreground="White"  />
-                        <TextBlock Text="{Binding Path=State }" Width="60" Height="20" Foreground="White"  />
+                        <TextBlock Width="100" Height="20">
+                            <TextBlock.Inlines>
+                                <Run Text="{Binding Path=State }" Foreground="White"/>
+                                <Run Text="(" Foreground="White"/>
+                                <Run Text="{Binding Path=CurrentCurrency}" Foreground="White"/>
+                                <Run Text=")" Foreground="White"/>
+                            </TextBlock.Inlines>
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding  Path=thr}" Value="{x:Null}">
+                                            <Setter Property="Visibility" Value="Hidden"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
                     </StackPanel>
                     
                 </DataTemplate>
