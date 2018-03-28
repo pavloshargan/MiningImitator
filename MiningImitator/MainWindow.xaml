@@ -16,7 +16,7 @@
             <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
 
-        <Rectangle  Fill="#01080d" Grid.Row="0"/>
+        <Rectangle  Fill="#05262e" Grid.Row="0"/>
         <Button Grid.Row="0" Height="15" Width="15" HorizontalAlignment="Right" Margin="0,0,4,0" Click="Button_Click">
             <Button.Style>
                 <Style TargetType="Button">
@@ -51,9 +51,12 @@
             </Button.Style>
         </Button>
             <StackPanel Grid.Row="1"  Orientation="Horizontal">
-            <Label  Name="ETHLabel" Foreground="White" Content="ETH: 0"/>
-            <Label  Name="BTCLabel" Foreground="White" Content="BTC: 0"/>
-            <Label  Name="KRBLabel" Foreground="White" Content="KRB: 0"/>
+            <Label Foreground="White" Content="ETH:"/>
+            <Label  Name="ETHLabel" Foreground="White" Content="0"/>
+            <Label Foreground="White" Content="BTC:"/>
+            <Label  Name="BTCLabel" Foreground="White" Content="0"/>
+            <Label  Foreground="White" Content="KRB:"/>
+            <Label  Name="KRBLabel" Foreground="White" Content="0"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal">
             <Button IsEnabled="False" VerticalAlignment="Top" Height="25" Width="50" Name="Stop" Content="Stop" Click="Stop_Click"/>
@@ -63,7 +66,7 @@
                 <ComboBoxItem  Content="ETH"/>
                 <ComboBoxItem  Content="KRB"/>
             </ComboBox>
-            <TextBlock   VerticalAlignment="Top" Height="25"   Background="Transparent" Foreground="White" Name="CardInfo">
+            <TextBlock Margin="10,0,0,0"  VerticalAlignment="Top" Height="25"   Background="Transparent" Foreground="White" Name="CardInfo">
                 <TextBlock.Style>
                     <Style TargetType="TextBlock">
                         <Style.Triggers>
@@ -78,25 +81,27 @@
                     <Run Text="{Binding ElementName=MyList, Mode=OneWay, Path=SelectedValue.Power}"/>
                 </TextBlock.Inlines>
                         </TextBlock>
-            <TextBlock   Margin="10,0,0,0" VerticalAlignment="Top" Height="25"   Background="Transparent" Foreground="White" Name="MineInfo">
+            <TextBlock   Margin="10,0,0,0" VerticalAlignment="Top" Height="25"   Background="Transparent" Foreground="White" x:Name="MineInfo">
+              
                 <TextBlock.Style>
-                    <Style TargetType="TextBlock">
+                    <Style TargetType="{x:Type TextBlock}">
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding ElementName=MyList, Path=SelectedValue.thr}" Value="{x:Null}">
+                            <DataTrigger Binding="{Binding SelectedValue.thr, ElementName=MyList}" Value="{x:Null}">
                                 <Setter Property="Visibility" Value="Hidden"/>
                             </DataTrigger>
+ 
                         </Style.Triggers>
                     </Style>
                 </TextBlock.Style>
-                <TextBlock.Inlines >
-                    <Run Text="Has mined:"/>
-                    <Run Text="{Binding ElementName=MyList,  Mode=TwoWay, Path=SelectedValue.CurrentSessionMined, UpdateSourceTrigger=PropertyChanged}"   />
-                </TextBlock.Inlines>
-            </TextBlock>
-           
+                <Run Text="Has mined:"/>
+                <Run Name="MinedRun" />
+                 <Run Name="CurrencyRun" />
+                 
+                 </TextBlock>
+
 
         </StackPanel>
-                    <ListView  BorderThickness="0" Background="Transparent" Margin="0,30,0,0" Name="MyList" Grid.Row="2" SelectionChanged="MyList_SelectionChanged">
+                    <ListView    BorderThickness="0" Background="Transparent" Margin="0,30,0,0" Name="MyList" Grid.Row="2" SelectionChanged="MyList_SelectionChanged">
 
             <ListView.ItemTemplate >
                 <DataTemplate>
@@ -126,29 +131,6 @@
 
         </ListView>
 
-        <!--<Label Grid.Row="1" Height="25" Name="Card1Name"/>
-        <ComboBox HorizontalAlignment="Right" Margin="0,0,140,0" Height="25" Width="50" Grid.Row="1" Name="Card1Currency"/>
-        <Button HorizontalAlignment="Right" Height="25" Width="50" Grid.Row="1" Name="Stop1" Content="Stop"/>
-        <Button HorizontalAlignment="Right" Margin="0,0,70,0" Height="25" Width="50" Grid.Row="1" Name="Start1" Content="Start"/>
         
-        <Label Grid.Row="2" Height="25" Name="Card2Name"/>
-        <ComboBox HorizontalAlignment="Right" Margin="0,0,140,0" Height="25" Width="50" Grid.Row="2" Name="Card2Currency"/>
-        <Button  HorizontalAlignment="Right" Height="25" Width="50" Grid.Row="2" Name="Stop2" Content="Stop"/>
-        <Button HorizontalAlignment="Right" Margin="0,0,70,0" Height="25" Width="50" Grid.Row="2" Name="Start2" Content="Start"/>
-        
-        <Label Grid.Row="3" Height="25" Name="Card3Name" />
-        <ComboBox HorizontalAlignment="Right" Margin="0,0,140,0" Height="25" Width="50" Grid.Row="3" Name="Card3Currency"/>
-        <Button  HorizontalAlignment="Right" Height="25" Width="50" Grid.Row="3" Name="Stop3" Content="Stop"/>
-        <Button HorizontalAlignment="Right" Margin="0,0,70,0" Height="25" Width="50" Grid.Row="3" Name="Start3" Content="Start"/>
-        
-        <Label Grid.Row="4" Height="25" Name="Card4Name" />
-        <ComboBox HorizontalAlignment="Right" Margin="0,0,140,0" Height="25" Width="50" Grid.Row="4" Name="Card4Currency"/>
-        <Button  HorizontalAlignment="Right" Height="25" Width="50" Grid.Row="4" Name="Stop4" Content="Stop"/>
-        <Button HorizontalAlignment="Right" Margin="0,0,70,0" Height="25" Width="50" Grid.Row="4" Name="Start4" Content="Start"/>
-        
-        <Label Grid.Row="5" Height="25" Name="Card5Name"/>
-        <ComboBox HorizontalAlignment="Right" Margin="0,0,140,0" Height="25" Width="50" Grid.Row="5" Name="Card5Currency"/>
-        <Button  HorizontalAlignment="Right" Height="25" Width="50" Grid.Row="5" Name="Stop5" Content="Stop"/>
-        <Button HorizontalAlignment="Right" Margin="0,0,70,0" Height="25" Width="50" Grid.Row="5" Name="Start5" Content="Start"/>-->
-    </Grid>
+     </Grid>
 </Window>
